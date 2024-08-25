@@ -40,7 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function handleAdviceCommand() {
         try {
-            const response = await fetch(`https://api.adviceslip.com/advice?timestamp=${new Date().getTime()}`);
+            // Adding a random number to prevent caching
+            const randomParam = Math.floor(Math.random() * 1000000);
+            const response = await fetch(`https://api.adviceslip.com/advice?random=${randomParam}`);
             const data = await response.json();
             if (data && data.slip && data.slip.advice) {
                 displayResponse(data.slip.advice);
