@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else if (command === 'clear') {
                     crtText.innerHTML = ''; // Clear the screen
                 } else {
-                    displayResponse(`Unknown command: ${command}. Try help command`);
+                    displayResponse(`Unknown command: ${command}`);
                 }
             }
         }
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function handleAdviceCommand() {
         try {
-            const response = await fetch('https://api.adviceslip.com/advice');
+            const response = await fetch(`https://api.adviceslip.com/advice?timestamp=${new Date().getTime()}`);
             const data = await response.json();
             if (data && data.slip && data.slip.advice) {
                 displayResponse(data.slip.advice);
