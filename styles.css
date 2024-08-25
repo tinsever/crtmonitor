@@ -77,7 +77,7 @@ body {
     background: #00ff00;
     opacity: 0.5;
     z-index: 10;
-    animation: scanline 0.1s linear infinite;
+    animation: scanline 1.5s linear infinite;
 }
 
 @keyframes scanline {
